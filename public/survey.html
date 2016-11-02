@@ -30,12 +30,12 @@
   </form><br> -->
 
   
-  <div class="input-group">
-    <input id="formName" type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+  <div class="input-group" id="formName">
+    <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
   </div>
 
-  <div class="input-group">
-    <input id="image-input" type="text" class="form-control" placeholder="Image Link" aria-describedby="basic-addon1">
+  <div class="input-group" id="image-input">
+    <input type="text" class="form-control" placeholder="Image Link" aria-describedby="basic-addon1">
   </div>
 
   <hr>
@@ -180,34 +180,37 @@
       isChecked = true;
     }
 
-    if(isChecked) {
+    if(isChecked){
       var newPerson = {
         'name':$('#formName').val().trim(),
         'image':$('#image-input').val().trim(),
         'scores': [
-            $("input[name='q1']:checked").val(),
-            $("input[name='q2']:checked").val(),
-            $("input[name='q3']:checked").val(),
-            $("input[name='q4']:checked").val(),
-            $("input[name='q5']:checked").val(),
-            $("input[name='q6']:checked").val(),
-            $("input[name='q7']:checked").val(),
-            $("input[name='q8']:checked").val(),
-            $("input[name='q9']:checked").val(),
-            $("input[name='q10']:checked").val()
+            $('input[name= 'q1']:checked').val(),
+            $('input[name='q2']:checked').val(),
+            $('input[name='q3']:checked').val(),
+            $('input[name='q4']:checked').val(),
+            $('input[name='q5']:checked').val(),
+            $('input[name='q6']:checked').val(),
+            $('input[name='q7']:checked').val(),
+            $('input[name='q8']:checked').val(),
+            $('input[name='q9']:checked').val(),
+            $('input[name='q10']:checked').val()
         ]
       };
-
-      $.post('/api/survey', newPerson,
+      $.post(url + 'api/survey', newPerson,
       function(data){
-        console.log('is this a thing? data=', data);
         console.log('Name: ' + data.name);
         console.log('Image Link: ' + data.image);
         $('#friendName').text(data.name);
         $('#friendImage').text(data.image);
-        $('#myModal').modal('show');
       });
-    } else {
+    };
+
+    
+
+
+
+    else{
       alert('Please enter both your name and image link!');
     }
 

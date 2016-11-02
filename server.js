@@ -5,7 +5,7 @@ var path = require("path");
 
 //Initialize the express app
 var app = express();
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 //Allows express to parse data
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
-app.use(express.static('public'));
+app.use(express.static('./app/public'));
 //Routes
 
 require('./app/routing/html-routes.js')(app);

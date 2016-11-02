@@ -8,15 +8,15 @@ module.exports = function(app){
 //first route will allow the survey page to be reached through the correct path.
 
 
-app.get('/survey', function(req, res){
-  res.sendFile(path.join(__dirname + '/../public/survey.html'));
-});
+  app.get('/survey', function(req, res){
+    res.sendFile(path.join(__dirname + '/../public/survey.html'));
+  });
 
 
 //default path takes user to the home page if path specified is not recognized.
 
 
-app.use(function(req, res){
-  res.sendFile(path.join(__dirname + '/../public/home.html'));
+  app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname + '/../public/home.html'));
 });
 };
