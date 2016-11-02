@@ -185,7 +185,7 @@
         'name':$('#formName').val().trim(),
         'image':$('#image-input').val().trim(),
         'scores': [
-            $('input[name='q1']:checked').val(),
+            $('input[name= 'q1']:checked').val(),
             $('input[name='q2']:checked').val(),
             $('input[name='q3']:checked').val(),
             $('input[name='q4']:checked').val(),
@@ -197,15 +197,16 @@
             $('input[name='q10']:checked').val()
         ]
       };
-    };
-
-    .post(url + 'api/survey', newPerson,
+      $.post(url + 'api/survey', newPerson,
       function(data){
         console.log('Name: ' + data.name);
         console.log('Image Link: ' + data.image);
         $('#friendName').text(data.name);
         $('#friendImage').text(data.image);
       });
+    };
+
+    
 
 
 
