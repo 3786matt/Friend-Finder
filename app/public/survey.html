@@ -139,15 +139,6 @@
           <input type="radio" class="q" name="q10" value="5"> 5  
   </div><br>
   <hr>
-<!--   <button id="submit">SUBMIT</button> -->
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">SUBMIT</button>
-
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      ...
-    </div> -->
 
     <button type="button" id='Submit1' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SUBMIT</button>
   </div>
@@ -182,10 +173,10 @@
   
   var url = window.location.origin;
 
-  $(#Submit1).on('click', function(){
+  $('#Submit1').on('click', function(){
     var isChecked;
 
-    if($('#formName').val().trim()!=='' && $('#image-input')!=='') {
+    if($('#formName').val().trim()!=='' && $('#image-input').val().trim()!=='') {
       isChecked = true;
     }
 
@@ -193,7 +184,7 @@
       var newPerson = {
         'name':$('#formName').val().trim(),
         'image':$('#image-input').val().trim(),
-        'points': [
+        'scores': [
             $('input[name='q1']:checked').val(),
             $('input[name='q2']:checked').val(),
             $('input[name='q3']:checked').val(),
@@ -206,7 +197,7 @@
             $('input[name='q10']:checked').val()
         ]
       };
-    }
+    };
 
     .post(url + 'api/survey', newPerson,
       function(data){
@@ -214,7 +205,7 @@
         console.log('Image Link: ' + data.image);
         $('#friendName').text(data.name);
         $('#friendImage').text(data.image);
-      })
+      });
 
 
 
@@ -223,7 +214,7 @@
     }
 
     return false;
-  })
+  });
 
 </script>
 

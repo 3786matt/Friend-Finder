@@ -23,14 +23,14 @@ module.exports = function(app){
     var userInfo = req.body;
     var userName = userInfo.name;
     var userImage = userInfo.image;
-    var userPoints = userInfo.points;
+    var userPoints = userInfo.scores;
 
     for(var i=0; i<[people].length-1; i++){
       console.log(people[i].name)
       matchDifference = 0;
       
       for(var i=0; i<10; i++){
-        sumDifference += Math.abs(parseInt(userPoints[i])-parseInt(people[i].points[i]));
+        sumDifference += Math.abs(parseInt(userPoints[i])-parseInt(people[i].scores[i]));
 
         if(sumDifference<=bestMatch.matchDifference){
             bestMatch.name = people[i].name;

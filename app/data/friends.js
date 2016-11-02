@@ -2,8 +2,8 @@ var people = [
 
   {
     'name':'Joe',
-    'image': '../public/css/images/placeholder.png'
-    'points':[
+    'image': '../public/css/images/placeholder.png',
+    'scores':[
         5,
         1,
         4,
@@ -15,12 +15,12 @@ var people = [
         4,
         1
       ]
-  }
+  },
 
   {
     'name':'Bob',
-    'image': '../public/css/images/placeholder.png'
-    'points':[
+    'image': '../public/css/images/placeholder.png',
+    'scores':[
         4,
         2,
         3,
